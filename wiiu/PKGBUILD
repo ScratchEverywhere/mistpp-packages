@@ -1,7 +1,7 @@
 # Maintainer: Grady Link <homebrew@grady.link>
 
 pkgname=wiiu-libmistpp
-pkgver=0.1.2
+pkgver=0.1.3
 pkgrel=1
 pkgdesc="A port of TurboWarp/mist to C++ using libcurl ."
 arch=(any)
@@ -35,4 +35,4 @@ package() {
   make install DESTDIR=$pkgdir
 }
 
-sha256sums=('b7503299eff1baa62ab5950a90c186ade348d13d7c5326ea7342e194334b7cfc')
+sha256sums=('6266bc6cf9bc414718cf70909f5896c1566f0eea1c9b8b00fce2beb288dc7c52')
