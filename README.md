@@ -2,6 +2,11 @@
 
 ## Installation
 
+The easiest way to install Mist++ for Homebrew is by just downloading the
+packages from the latest release and installing them with `(dkp-)pacman -U`.
+
+### Manual
+
 First you need to clone this repo with:
 
 ```sh
@@ -18,3 +23,7 @@ Lastly, run:
 ```
 
 to install the package.
+
+## Updating
+
+Just reinstall with the newest version.
