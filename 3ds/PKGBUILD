@@ -1,7 +1,7 @@
 # Maintainer: Grady Link <homebrew@grady.link>
 
 pkgname=3ds-libmistpp
-pkgver=0.1.4
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="A port of TurboWarp/mist to C++ using libcurl ."
 arch=(any)
@@ -35,4 +35,4 @@ package() {
   make install DESTDIR=$pkgdir
 }
 
-sha256sums=('1b6c8e965150926cb0a1d181a8967058955a45828186139ad913d4858e4a4b43')
+sha256sums=('dd7db2fb65244efd5b0cc206bfc29f2434d2fa13d381db67feec680895aa9359')
