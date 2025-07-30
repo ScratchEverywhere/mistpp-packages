@@ -5,7 +5,7 @@
 > [!NOTE]
 > Mist++ currently relies on modified curl packages for the Wii U and 3DS.
 > 
-> You can find these packages at https://github.com/gradylink/wut-packages and https://gradylink/dkp-pacman-packages.
+> You can find these packages at https://github.com/gradylink/wut-packages/tree/feat/curl (Wii U) and https://github.com/gradylink/dkp-pacman-packages/tree/feat/3ds-curl (3DS).
 > 
 > To install the Wii U one run `cd curl && (dkp-)makepkg -si`, for the 3DS one it's `cd 3ds/curl && (dkp-)makepkg -si`.
 
