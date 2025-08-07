@@ -1,0 +1,38 @@
+# Maintainer: Grady Link <homebrew@grady.link>
+
+pkgname=wii-libmistpp
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="A port of TurboWarp/mist to C++ using libcurl ."
+arch=(any)
+url="https://github.grady.link/mistpp"
+license=("GPL3")
+makedepends=('wii-cmake' 'dkp-toolchain-vars')
+depends=('wii-curl')
+source=("libmistpp-${pkgver}.tar.gz::https://github.com/gradylink/mistpp/archive/refs/tags/v${pkgver}.tar.gz")
+groups=('wiiu-portlibs')
+
+build() {
+  cd "$srcdir/mistpp-${pkgver}"
+
+  mkdir build
+  cd build
+
+  source /opt/devkitpro/wiivars.sh
+
+  powerpc-eabi-cmake .. \
+    -DCMAKE_BUILD_TYPE="Release" \
+    -DCMAKE_INSTALL_PREFIX=$PORTLIBS_PREFIX \
+    -DCMAKE_C_COMPILER_WORKS=true \
+    -DCMAKE_CXX_COMPILER_WORKS=true \
+    -DBUILD_TEST=OFF
+
+  make
+}
+
+package() {
+  cd "$srcdir/mistpp-${pkgver}/build"
+  make install DESTDIR=$pkgdir
+}
+
+sha256sums=('21090427abf569a997eb4b84c686dad80ae299abed9d3757b07953b2bcc7776d')
