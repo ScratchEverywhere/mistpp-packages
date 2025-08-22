@@ -1,0 +1,22 @@
+# Maintainer: Grady Link <homebrew@grady.link>
+
+pkgname=libmistpp
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="A port of TurboWarp/mist to C++ using libcurl ."
+url="https://github.com/gradylink/mistpp"
+license=("GPL3")
+source=("libmistpp-${pkgver}.tar.gz::https://github.com/gradylink/mistpp/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('21090427abf569a997eb4b84c686dad80ae299abed9d3757b07953b2bcc7776d')
+
+build() {
+  cd "$srcdir/mistpp-${pkgver}"
+  mkdir build && cd build
+  cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake -DCMAKE_INSTALL_PREFIX=$prefix -DBUILD_TEST=OFF -DCMAKE_BUILD_TYPE="Release"
+  make -j$(nproc)
+}
+
+package () {
+  cd "$srcdir/mistpp-${pkgver}/build"
+  make DESTDIR=$pkgdir install
+}
