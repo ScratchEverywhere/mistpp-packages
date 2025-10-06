@@ -1,0 +1,32 @@
+# Maintainer: Grady Link <homebrew@grady.link>
+
+pkgname=ps4-libmistpp
+pkgver=0.3.1
+pkgrel=1
+pkgdesc="A port of TurboWarp/mist to C++ using libcurl."
+arch=(any)
+url="https://github.com/gradylink/mistpp"
+license=("GPL3")
+source=("libmistpp-${pkgver}.tar.gz::https://github.com/gradylink/mistpp/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('e63756a218ff6e1374bff68883ea8e61dd9ac8235373cc2e42ad9ac6dca37937')
+depends=('ps4-openorbis-libcurl')
+makedepends=('ps4-openorbis-pkg-config' 'ps4-openorbis-vars')
+groups=(
+  'pacbrew' 'pacbrew-ps4' 'pacbrew-ps4-portlibs'
+  'ps4-openorbis-portlibs' # requires pacbrew
+)
+
+build() {
+  cd "$srcdir/mistpp-${pkgver}"
+  source /opt/pacbrew/ps4/openorbis/ps4vars.sh
+  
+  mkdir build && cd build
+  openorbis-cmake .. -DCMAKE_INSTALL_PREFIX=${OPENORBIS}/usr -DBUILD_TEST=OFF -DCMAKE_BUILD_TYPE="Release"
+  
+  make
+}
+
+package() {
+  cd "$srcdir/mistpp-${pkgver}/build"
+  make DESTDIR=$pkgdir install
+}
