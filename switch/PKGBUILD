@@ -1,14 +1,14 @@
 # Maintainer: Grady Link <homebrew@grady.link>
 
-pkgname=wiiu-libmistpp
+pkgname=switch-libmistpp
 pkgver=0.3.4
 pkgrel=1
 pkgdesc="A port of TurboWarp/mist to C++ using libcurl ."
 arch=(any)
 url="https://github.com/ScratchEverywhere/mistpp"
 license=("LGPL3")
-makedepends=('wiiu-cmake' 'dkp-toolchain-vars')
-depends=('wiiu-curl')
+makedepends=('switch-cmake' 'dkp-toolchain-vars')
+depends=('switch-curl')
 source=("libmistpp-${pkgver}.tar.gz::https://github.com/ScratchEverywhere/mistpp/archive/refs/tags/v${pkgver}.tar.gz")
 groups=('wiiu-portlibs')
 
